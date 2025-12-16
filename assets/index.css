@@ -1,0 +1,219 @@
+/* Reset */
+body, html {
+  margin: 0;
+  padding: 0;
+  height: 100%;
+  font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+}
+
+/* Banner */
+.video-banner {
+  position: relative;
+  height: 100vh;
+  overflow: hidden;
+  
+}
+
+/* Video */
+.video-banner video {
+  position: absolute;
+  top: 50%;
+  left: 50%;
+  min-width: 100%;
+  min-height: 100%;
+  transform: translate(-50%, -50%);
+  object-fit: cover;
+  z-index: 1;
+}
+
+/* Banner video cover */
+.video-overlay {
+  position: absolute;
+  inset: 0;
+  background: linear-gradient(
+    to right,
+    rgba(0,0,0,0.75),
+    rgba(0,0,0,0.45),
+    rgba(0,0,0,0.75)
+  );
+  z-index: 2;
+}
+
+/* Content */
+.banner-content {
+  position: relative;
+  z-index: 3;
+  height: 100%;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  color: white;
+  text-align: center;
+}
+
+/* Animated heading */
+.hero-title {
+  font-size: 3.2rem;
+  margin: 0;
+  opacity: 0;
+  animation: flyIn 1.5s ease-out forwards;
+}
+
+/* HalCity colors */
+.hero-title span {
+  color: rgb(210, 5, 5); /* Hal */
+}
+
+.hero-title .city {
+  color: #0022ff; /* City */
+}
+
+/* Subtitle */
+.banner-content p {
+  margin-top: 10px;
+  font-size: 1.2rem;
+  opacity: 0;
+  animation: flyIn 1.5s ease-out forwards;
+  animation-delay: 0.4s;
+}
+
+/* Button */
+.banner-content button {
+  margin-top: 25px;
+  padding: 14px 30px;
+  font-size: 1rem;
+  border: none;
+  background: #ff6600;
+  color: white;
+  cursor: pointer;
+  border-radius: 6px;
+  transition: 0.3s ease;
+  opacity: 0;
+  animation: flyIn 1.5s ease-out forwards;
+  animation-delay: 0.8s;
+}
+
+.banner-content button:hover {
+  background: #cc5200;
+  transform: scale(1.05);
+}
+
+/* Animation */
+@keyframes flyIn {
+  from {
+    transform: translateY(50px);
+    opacity: 0;
+  }
+  to {
+    transform: translateY(0);
+    opacity: 1;
+  }
+}
+
+
+
+/* Floating icon container */
+.floating-icon {
+  position: fixed;
+  bottom: 20px;
+  right: 20px;
+  background-color: #25D366;
+  border-radius: 50%;
+  box-shadow: 0 4px 10px rgba(0, 0, 0, 0.2);
+  width: 60px;
+  height: 60px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  transition: transform 0.3s ease, box-shadow 0.3s ease;
+  cursor: pointer;
+  z-index: 999;
+}
+
+/* Icon image */
+.floating-icon img {
+  width: 35px;
+  height: 35px;
+}
+
+
+.header {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  padding: 10px 20px;
+}
+
+.logo-container {
+  display: flex;
+  align-items: center;
+}
+
+.logo {
+  height: 50px;
+  margin-right: 10px;
+}
+
+.logo-text {
+  margin: 0;
+  font-weight: 700;
+  color: rgb(210, 5, 5);
+  font-size: 24px;
+}
+
+.logo-highlight {
+  color: #0022ff;
+}
+
+.nav {
+  display: flex;
+  align-items: center;
+  gap: 20px;
+}
+
+.nav a, .dropbtn {
+  text-decoration: none;
+  color: black;
+  font-weight: 500;
+  background: none;
+  border: none;
+  cursor: pointer;
+  font-size: 16px;
+  padding: 5px 10px;
+}
+
+.nav a:hover, .dropbtn:hover {
+  color: #0022ff;
+}
+
+/* Dropdown */
+.dropdown {
+  position: relative;
+  display: inline-block;
+}
+
+.dropdown-content {
+  display: none;
+  position: absolute;
+  background-color: #f9f9f9;
+  min-width: 150px;
+  box-shadow: 0px 4px 8px rgba(0,0,0,0.2);
+  z-index: 1;
+  flex-direction: column;
+}
+
+.dropdown-content a {
+  color: black;
+  padding: 10px 15px;
+  text-decoration: none;
+  display: block;
+}
+
+.dropdown-content a:hover {
+  background-color: #f1f1f1;
+}
+
+.dropdown:hover .dropdown-content {
+  display: flex;
+}
