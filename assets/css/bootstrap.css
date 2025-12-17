@@ -187,4 +187,35 @@ body {
   /* Fly-in animation */
   animation: flyIn 0.8s ease forwards;
 }
+.cards-intro h2 {
+  font-size: clamp(28px, 4vw, 42px);
+  font-weight: 700;
+  margin-bottom: 8px;
+  color: #22c55e; /* green accent */
+  opacity: 0;
+  transform: translateY(20px);
+  animation: slideUp 1s forwards;
+}
 
+.cards-intro p {
+  max-width: 720px;
+  margin: 0 auto 40px;
+  font-size: 15px;
+  color: #22c55e; /* green accent */
+  line-height: 1.6;
+  opacity: 0;
+  transform: translateY(20px);
+  animation: slideUp 1s forwards 0.3s; /* delay for staggered effect */
+}
+
+.cards-intro .line {
+  background: #22c55e; /* keep line green */
+}
+
+/* Animation keyframes */
+@keyframes slideUp {
+  to {
+    opacity: 1;
+    transform: translateY(0);
+  }
+}
