@@ -3,9 +3,13 @@ body, html {
   margin: 0;
   padding: 0;
   height: 100%;
+  box-sizing: border-box;
+  font-family: "Poppins", Arial, sans-serif;
   font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
   background-color: #000c58;
 }
+
+
 
 /* Banner */
 .video-banner {
@@ -116,8 +120,8 @@ body, html {
   position: fixed;
   bottom: 25px;
   right: 25px;
-  width: 80px;
-  height: 80px;
+  width: 200px;
+  height: 200px;
   border-radius: 50%;
   display: flex;
   align-items: center;
@@ -128,8 +132,8 @@ body, html {
 }
 
 .floating-icon img {
-  width: 32px;
-  height: 32px;
+  width: 50px;
+  height: 50px;
 }
 
 /* Hover effect */
@@ -172,13 +176,149 @@ body, html {
 }
 
 
-
 .header {
+  position: fixed;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 80px;
+  background: white;
+  backdrop-filter: blur(8px);
   display: flex;
-  justify-content: space-between;
   align-items: center;
-  padding: 10px 20px;
+  justify-content: space-between;
+  padding: 0 40px;
+  z-index: 1000;
 }
+
+/* Logo */
+.logo-container {
+  display: flex;
+  align-items: center;
+  gap: 10px;
+}
+
+.logo {
+  height: 45px;
+}
+
+.logo-text {
+  color: #fff;
+  font-weight: 700;
+}
+
+.logo-highlight {
+  color: #6b6fe3;
+}
+
+/* Navigation */
+.nav {
+  display: flex;
+  align-items: center;
+  gap: 30px;
+}
+
+.nav a,
+.dropbtn {
+  color: #fff;
+  text-decoration: none;
+  background: none;
+  border: none;
+  font-size: 16px;
+  cursor: pointer;
+  transition: color 0.3s ease;
+}
+
+.nav a:hover,
+.dropbtn:hover {
+  color: #6b6fe3;
+}
+
+.dropdown {
+  position: relative;
+}
+
+.dropdown-content {
+  display: none;
+  position: absolute;
+  top: 100%;
+  background: #111;
+  min-width: 180px;
+  border-radius: 10px;
+  padding: 10px 0;
+}
+
+.dropdown-content a {
+  display: block;
+  padding: 10px 20px;
+  color: #fff;
+  text-decoration: none;
+}
+
+.dropdown-content a:hover {
+  background: #6b6fe3;
+}
+
+.dropdown:hover .dropdown-content {
+  display: block;
+}
+
+
+.video-banner {
+  position: relative;
+  height: 100vh;
+  width: 100%;
+  margin-top: 80px; /* Matches header height */
+  overflow: hidden;
+}
+
+.video-banner video {
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+}
+
+/* Dark overlay */
+.video-overlay {
+  position: absolute;
+  inset: 0;
+  background: rgba(0, 0, 0, 0.55);
+  z-index: 1;
+}
+@keyframes flyIn {
+  from {
+    opacity: 0;
+    transform: translateY(30px);
+  }
+  to {
+    opacity: 1;
+    transform: translateY(0);
+  }
+}
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
 
 .logo-container {
   display: flex;
