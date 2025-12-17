@@ -6,7 +6,7 @@ body, html {
   box-sizing: border-box;
   font-family: "Poppins", Arial, sans-serif;
   font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
-  background-color: #000c58;
+  background-color: rgb(8, 8, 8)
 }
 
 
@@ -132,8 +132,8 @@ body, html {
 }
 
 .floating-icon img {
-  width: 50px;
-  height: 50px;
+  width: 40px;
+  height: 40px;
 }
 
 /* Hover effect */
@@ -170,8 +170,8 @@ body, html {
   }
 
   .floating-icon img {
-    width: 40px;
-    height: 40px;
+    width: 58px;
+    height: 58px;
   }
 }
 
