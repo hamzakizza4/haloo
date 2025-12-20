@@ -44,11 +44,11 @@
 
 <!-- IMAGE BANNER -->
 <section class="image-banner">
-  <img src="assets/images/contact.jpeg" alt="Banner Image" class="banner-img">
+  <img src="assets/images/OIP (9).webp" alt="Banner Image" class="banner-img">
   <div class="overlay"></div>
   <div class="banner-content">
     <h1>Welcome to <span>Hal City</span></h1>
-    <p>Your trusted solution for campaigns and marketing</p>
+    <p>Powering Style, Honoring Tradition.</p>
     <button id="bannerBtn">Explore More</button>
   </div>
 </section>
@@ -65,28 +65,132 @@
       <h2>Our Team</h2>
       <span class="line"></span>
       <p>
-      A dedicated standby team is always by your side, ready to step in whenever you need support. Trained to respond quickly and effectively, they provide reassurance that you are never alone in facing challenges.
-      </p>
+As a dedicated one‑person team, I bring you stylish shoes, timeless watches, and elegant Muslim outfits with personal care and attention.
+ Every product is chosen with passion, ensuring quality, authenticity, and cultural pride. By advertising directly, 
+I connect you to fashion that blends modern trends with tradition, 
+making your shopping experience simple, trustworthy, and unique.      </p>
     </div>
 
-    <!-- TEAM MEMBERS -->
-    <div class="team-members">
+<!-- TEAM SECTION -->
+<style>
+/* ===== TEAM SECTION ===== */
+.team-members {
+  display: flex;
+  gap: 30px;
+  justify-content: center;
+  flex-wrap: wrap;
+  margin: 80px 0;
+}
 
-      <div class="team-card">
-        <img src="assets/images/PRINCE.jpeg" alt="John Doe">
-        <h4>Mr HABUMUGISHA</h4>
-        <span>Business Development</span>
-      </div>
+/* ===== TEAM CARD ===== */
+.team-card {
+  background: rgba(255, 255, 255, 0.04);
+  backdrop-filter: blur(14px);
+  border-radius: 18px;
+  padding: 30px 25px;
+  text-align: center;
+  width: 260px;
+  border: 1px solid rgba(255,255,255,0.08);
+  box-shadow: 0 20px 40px rgba(0,0,0,0.4);
+  transition: all 0.45s ease;
+  transform: translateY(20px);
+  opacity: 0;
+}
 
-      <div class="team-card">
-        <img src="assets/images/HAMZA.jpeg" alt="Jane Doe">
-        <h4>KIZZA HAMZA</h4>
-        <span>Media Development</span>
-      </div>
-    </div>
+/* Reveal animation (scroll) */
+.team-card.show {
+  transform: translateY(0);
+  opacity: 1;
+}
+
+/* Hover */
+.team-card:hover {
+  transform: translateY(-10px) scale(1.05);
+  box-shadow:
+    0 25px 60px rgba(34,197,94,0.25),
+    0 0 30px rgba(34,197,94,0.15);
+  border-color: rgba(34,197,94,0.4);
+}
+
+/* ===== IMAGE ===== */
+.team-card img {
+  width: 120px;
+  height: 120px;
+  object-fit: cover;
+  border-radius: 50%;
+  margin-bottom: 18px;
+  border: 3px solid rgba(34,197,94,0.5);
+  box-shadow: 0 0 20px rgba(34,197,94,0.3);
+  transition: transform 0.4s ease;
+}
+
+/* Image hover */
+.team-card:hover img {
+  transform: scale(1.12);
+}
+
+/* ===== TEXT ===== */
+.team-card h4 {
+  margin: 12px 0 6px;
+  font-weight: 600;
+  color: #e5e7eb;
+  font-size: 16px;
+  letter-spacing: 0.03em;
+}
+
+.team-card span {
+  font-size: 13px;
+  color: #22c55e;
+  text-transform: uppercase;
+  letter-spacing: 0.08em;
+}
+
+/* ===== RESPONSIVE ===== */
+@media (max-width: 768px) {
+  .team-members {
+    flex-direction: column;
+    align-items: center;
+    gap: 20px;
+  }
+}
+</style>
+
+<div class="team-members">
+  <div class="team-card">
+    <img src="assets/images/PRINCE.jpeg" alt="Mr Habumugisha Abdullatif">
+    <h4>MR HABUMUGISHA ABDULATIF</h4>
+    <span>Business Developer</span>
   </div>
-</section>
 
+  <div class="team-card">
+    <img src="assets/images/HAMZA.jpeg" alt="Kizza Hamza">
+    <h4>KIZZA HAMZA</h4>
+    <span>Media Development</span>
+  </div>
+</div>
+
+<script>
+const teamCards = document.querySelectorAll('.team-card');
+const revealTeam = new IntersectionObserver(entries => {
+  entries.forEach(entry => {
+    if(entry.isIntersecting) {
+      entry.target.classList.add('show');
+    }
+  });
+}, { threshold: 0.2 });
+
+teamCards.forEach(card => revealTeam.observe(card));
+</script>
+
+
+</div>
+
+
+ <!-- Start a conversation with us anytime on WhatsApp --> <!-- Floating Icon -->
+    <div class="floating-icon" id="floatingIcon">
+     <a href="https://wa.me/256761686622" target="_blank" title="Chat with us on WhatsApp"> 
+      <img src="assets/images/download__6_-removebg-preview (1).png" alt=""> </a> 
+    </div>
 
 
 <section class="why-us scroll-animate">
@@ -95,9 +199,8 @@
     <div class="why-text slide-left scroll-animate">
       <h2>Why Choose Us</h2>
       <p>
-        We focus on creating simple, effective, and future-ready digital
-        solutions. Our goal is to help brands grow with confidence using
-        modern design, smart strategy, and reliable technology.
+  Elevate your look with our latest drops—stylish shoes, sleek watches, and elegant Muslim outfits made just for you. 
+  We don’t just deliver fashion, we deliver confidence and culture straight to your doorstep. Our ads keep you updated on the hottest trends, so you’ll never miss out on the perfect fit. Step in, shine on, and stay timeless with us
       </p>
 
       <ul class="why-list">
@@ -110,23 +213,35 @@
 
     <div class="why-cards slide-right scroll-animate">
 
-      <div class="why-card">
-        <span class="icon">🎨</span>
-        <h4>Creative Design</h4>
-        <p>Modern, clean, and user-focused designs that stand out.</p>
-      </div>
+   <div class="why-card">
+  <span class="icon">
+    <i class="fas fa-award"></i>
+  </span>
+  <h4>Quality & Trust</h4>
+  <p>
+    We deliver premium shoes, stylish watches, and elegant Muslim outfits with unmatched quality.
+  </p>
+</div>
 
-      <div class="why-card">
-        <span class="icon">📈</span>
-        <h4>Growth Focused</h4>
-        <p>Every project is built to help your business scale.</p>
-      </div>
+<div class="why-card">
+  <span class="icon">
+    <i class="fas fa-shipping-fast"></i>
+  </span>
+  <h4>Convenience & Style</h4>
+  <p>
+    Our products reach you directly, saving time and effort.
+  </p>
+</div>
 
-      <div class="why-card">
-        <span class="icon">🛡️</span>
-        <h4>Reliable Support</h4>
-        <p>We stay with you after launch to ensure long-term success.</p>
-      </div>
+<div class="why-card">
+  <span class="icon">
+    <i class="fas fa-mosque"></i>
+  </span>
+  <h4>Culture & Confidence</h4>
+  <p>
+    Choosing us means embracing confidence, elegance, and authenticity.
+  </p>
+</div>
 
     </div>
 
@@ -166,25 +281,25 @@
       <a href="#">Marketing</a>
     </div>
 
-    <!-- Contact -->
-    <ul class="contact-info">
+    <!-- Contact Info -->
+<ul class="contact-info">
   <li>
-    <i class="bx bx-phone bx-xs"></i>
+    <i class="fas fa-phone"></i>
     <a href="tel:+256761686622">+256 761 686 622</a>
   </li>
 
   <li>
-    <i class="bx bx-mail-send bx-xs"></i>
+    <i class="fas fa-envelope"></i>
     <a href="mailto:info@halcity.com">info@halcity.com</a>
   </li>
 
   <li>
-    <i class="bx bx-map bx-xs"></i>
+    <i class="fas fa-location-dot"></i>
     <span>Kampala, Uganda</span>
   </li>
 
   <li>
-    <i class="bx bx-time bx-xs"></i>
+    <i class="fas fa-clock"></i>
     <span>Mon – Fri : 9:00 AM – 6:00 PM</span>
   </li>
 </ul>
