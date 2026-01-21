@@ -146,11 +146,62 @@ Our Muslim outfits, shoes, and watches are designed to help
 
 
 
+
   <!-- Start a conversation with us anytime on WhatsApp --> <!-- Floating Icon -->
     <div class="floating-icon" id="floatingIcon">
      <a href="https://wa.me/256761686622" target="_blank" title="Chat with us on WhatsApp"> 
       <img src="assets/images/download__6_-removebg-preview (1).png" alt=""> </a> 
     </div>
+
+    <!-- FLOATING AI BUTTON -->
+<a href="https://habibi-ai-089ebae9.base44.app/" target="_blank" class="floating-ai-btn" title="Chat with AI">
+  <i class="fas fa-robot"></i>
+</a>
+
+<style>
+.floating-ai-btn {
+  position: fixed;
+  bottom: 25px;
+  right: 25px;
+  width: 40px;
+  height: 40px;
+  background: #22c55e; /* accent green */
+  color: #000;
+  border-radius: 50%;
+  display: grid;
+  place-items: center;
+  font-size: 28px;
+  box-shadow: 0 8px 20px rgba(0,0,0,0.3);
+  z-index: 10000;
+  transition: transform 0.3s, background 0.3s;
+  text-decoration: none;
+}
+
+.floating-ai-btn:hover {
+  transform: scale(1.15);
+  background: #10b981; /* accent-2 green */
+  color: #fff;
+}
+
+/* Optional: make it pulse for attention */
+@keyframes pulse {
+  0% { box-shadow: 0 0 0 0 rgba(34,197,94,0.7); }
+  70% { box-shadow: 0 0 0 10px rgba(34,197,94,0); }
+  100% { box-shadow: 0 0 0 0 rgba(34,197,94,0); }
+}
+.floating-ai-btn::after {
+  content: "";
+  position: absolute;
+  width: 100%;
+  height: 100%;
+  border-radius: 50%;
+  animation: pulse 2s infinite;
+}
+</style>
+
+<!-- Font Awesome for robot icon -->
+<script src="https://kit.fontawesome.com/a076d05399.js" crossorigin="anonymous"></script>
+
 
 <footer class="site-footer scroll-animate">
   <div class="footer-container">
