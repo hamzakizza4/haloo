@@ -30,20 +30,21 @@
   </div>
 
   <nav class="nav" id="navMenu">
-    <a href="#"><i class="fas fa-home"></i> Home</a>
+    <a href="index.html"><i class="fas fa-home"></i> Home</a>
 
     <!-- Dropdown -->
     <div class="dropdown">
-      <button class="dropbtn"><i class="fas fa-concierge-bell"></i> Services</button>
+      <button class="dropbtn"><i class="fas fa-concierge-bell"></i>Hal store</button>
       <div class="dropdown-content">
-        <a href="Proflio.html"><i class="fas fa-paint-brush"></i> Service 1</a>
-        <a href="#"><i class="fas fa-chart-line"></i> Service 2</a>
-        <a href="#"><i class="fas fa-bullhorn"></i> Service 3</a>
+        <a href="Proflio.html"><i class="fas fa-paint-brush"></i> Watches</a>
+        <a href="proflio1.html"><i class="fas fa-chart-line"></i> Muslim wear</a>
+        <a href="#"><i class="fas fa-bullhorn"></i> Shoes</a>
       </div>
     </div>
 
     <a href="about.html"><i class="fas fa-info-circle"></i> About</a>
     <a href="contact.html"><i class="fas fa-envelope"></i> Contact</a>
+    <a href="cart.html"><i class="fa-solid fa-cart-arrow-down"></i> Cart</a>
   </nav>
 
   <button class="hamburger" id="hamburger">
@@ -52,7 +53,6 @@
     <span></span>
   </button>
 </header>
-
 
 
 <!-- VIDEO -->
@@ -82,6 +82,111 @@
   <button id="ctaBtn">ENJOY</button>
 </div>
 </section>
+
+
+<!-- TRENDING SECTION -->
+<section class="trending">
+  <div class="trending-header">
+    <h2>🔥 Trending Items</h2>
+  </div>
+
+  <div class="trending-items">
+    <div class="trending-card">
+      <img src="https://via.placeholder.com/150" alt="Item 1">
+      <h3>Item One</h3>
+      <p>Short description of trending item one.</p>
+    </div>
+
+    <div class="trending-card">
+      <img src="https://via.placeholder.com/150" alt="Item 2">
+      <h3>Item Two</h3>
+      <p>Short description of trending item two.</p>
+    </div>
+
+    <div class="trending-card">
+      <img src="https://via.placeholder.com/150" alt="Item 3">
+      <h3>Item Three</h3>
+      <p>Short description of trending item three.</p>
+    </div>
+  </div>
+</section>
+
+<style>
+/* TRENDING SECTION */
+.trending {
+  max-width: 1200px;
+  margin: 80px auto;
+  padding: 0 20px;
+  color: var(--text);
+}
+
+.trending-header h2 {
+  font-size: 28px;
+  margin-bottom: 25px;
+  text-align: center;
+  color: var(--accent);
+}
+
+/* TRENDING ITEMS GRID */
+.trending-items {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(220px, 1fr));
+  gap: 20px;
+}
+
+/* CARD */
+.trending-card {
+  background: rgba(255,255,255,0.04);
+  border: 1px solid var(--border);
+  border-radius: 16px;
+  padding: 15px;
+  text-align: center;
+  transition: 0.4s ease;
+  overflow: hidden;
+  cursor: pointer;
+}
+
+.trending-card:hover {
+  transform: translateY(-8px);
+  box-shadow: 0 20px 50px rgba(34,197,94,0.25);
+}
+
+.trending-card img {
+  width: 100%;
+  border-radius: 12px;
+  margin-bottom: 12px;
+}
+
+.trending-card h3 {
+  font-size: 18px;
+  margin-bottom: 8px;
+  color: var(--accent);
+}
+
+.trending-card p {
+  font-size: 14px;
+  color: var(--muted);
+  line-height: 1.5;
+}
+
+/* RESPONSIVE */
+@media (max-width: 600px) {
+  .trending-header h2 {
+    font-size: 24px;
+  }
+
+  .trending-card h3 {
+    font-size: 16px;
+  }
+
+  .trending-card p {
+    font-size: 13px;
+  }
+}
+</style>
+
+
+
 
 <section class="home-intro">
   <h1 class="intro-title">   Blending Tradition & Modern Style</h1>
@@ -154,50 +259,48 @@ Our Muslim outfits, shoes, and watches are designed to help
     </div>
 
     <!-- FLOATING AI BUTTON -->
-<a href="https://habibi-ai-089ebae9.base44.app/" target="_blank" class="floating-ai-btn" title="Chat with AI">
-  <i class="fas fa-robot"></i>
+<a href="https://habibi-ai-companion.base44.app/" class="ai-float">
+    🤖
 </a>
 
 <style>
-.floating-ai-btn {
+.ai-float {
   position: fixed;
-  bottom: 25px;
-  right: 25px;
-  width: 40px;
-  height: 40px;
-  background: #22c55e; /* accent green */
-  color: #000;
-  border-radius: 50%;
-  display: grid;
-  place-items: center;
+  left: 20px;
+  bottom: 40px;
+  width: 60px;
+  height: 60px;
+  background: #22c55e;
+  color: #052e1d;
   font-size: 28px;
-  box-shadow: 0 8px 20px rgba(0,0,0,0.3);
-  z-index: 10000;
-  transition: transform 0.3s, background 0.3s;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  border-radius: 50%;
   text-decoration: none;
+  box-shadow: 0 10px 30px rgba(34,197,94,0.4);
+  transition: 0.3s ease;
+  z-index: 1000;
 }
 
-.floating-ai-btn:hover {
-  transform: scale(1.15);
-  background: #10b981; /* accent-2 green */
-  color: #fff;
+.ai-float:hover {
+  background: #10b981;
+  transform: scale(1.1);
+  box-shadow: 0 15px 40px rgba(34,197,94,0.6);
 }
 
-/* Optional: make it pulse for attention */
+/* Pulse animation */
 @keyframes pulse {
-  0% { box-shadow: 0 0 0 0 rgba(34,197,94,0.7); }
-  70% { box-shadow: 0 0 0 10px rgba(34,197,94,0); }
+  0% { box-shadow: 0 0 0 0 rgba(34,197,94,0.5); }
+  70% { box-shadow: 0 0 0 15px rgba(34,197,94,0); }
   100% { box-shadow: 0 0 0 0 rgba(34,197,94,0); }
 }
-.floating-ai-btn::after {
-  content: "";
-  position: absolute;
-  width: 100%;
-  height: 100%;
-  border-radius: 50%;
+
+.ai-float {
   animation: pulse 2s infinite;
 }
 </style>
+
 
 <!-- Font Awesome for robot icon -->
 <script src="https://kit.fontawesome.com/a076d05399.js" crossorigin="anonymous"></script>
@@ -210,7 +313,7 @@ Our Muslim outfits, shoes, and watches are designed to help
     <div class="footer-brand">
       <div class="logo-container">
         <img src="assets/ChatGPT_Image_Oct_29__2025__11_15_21_AM-removebg-preview.png" class="logo">
-        <h3 class="logo-text">HAL  <span class="logo-highlight">CITY</span></h3>
+        <h3 class="logo-text">HAL<span class="logo-highlight">CITY</span></h3>
       </div>
       <p>
         Building simple, reliable, and growth-focused digital solutions
@@ -258,6 +361,8 @@ Our Muslim outfits, shoes, and watches are designed to help
   </li>
 </ul>
 
+
+
       <div class="footer-socials">
         <a href="#"><i class="fab fa-facebook-f"></i></a>
         <a href="#"><i class="fab fa-instagram"></i></a>
@@ -272,12 +377,6 @@ Our Muslim outfits, shoes, and watches are designed to help
     <p>© 2025 HALCITY. All rights reserved.</p>
   </div>
 </footer>
-
-
-
-
-
-
 
 
 
@@ -307,6 +406,5 @@ Our Muslim outfits, shoes, and watches are designed to help
     navMenu.classList.toggle("active");
   });
 </script>
-
 </body>
 </html>
