@@ -1,38 +1,31 @@
 <!DOCTYPE html>
 <html lang="en">
 <head>
-<meta charset="UTF-8" />
-<meta name="viewport" content="width=device-width, initial-scale=1" />
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
 <title>HALCITY Cart</title>
-<link rel="stylesheet" href="assets/css/index.css">
-<link rel="stylesheet" href="assets/css/bootstrap.min.css">
-<link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.1/css/all.min.css"/>
 <style>
-:root {
-  --bg: #0f172a; --card: #111827; --text: #e5e7eb; 
-  --accent: #22c55e; --accent-2: #10b981; --border: #1f2937; --muted: #94a3b8;
-}
-body { background: var(--bg); color: var(--text); font-family: Inter, sans-serif; margin:0; padding:0; }
-.container { max-width: 900px; margin: 60px auto; padding: 0 20px; }
-h1 { text-align:center; margin-bottom:20px; }
-.cart { display:flex; flex-direction:column; gap:16px; }
-.cart-item { display:flex; align-items:center; gap:16px; background: var(--card); padding:12px; border-radius:12px; border:1px solid var(--border); transition: transform 0.3s; }
-.cart-item:hover { transform: scale(1.02); }
-.cart-item img { width:120px; height:120px; object-fit:contain; border-radius:8px; background:#0b1220; }
-.cart-item-info { flex:1; }
-.cart-item-info h3 { font-size:16px; margin-bottom:8px; }
-.cart-item-info p { font-size:14px; color: var(--muted); }
-.cart-item-qty input { width:50px; text-align:center; padding:4px; border-radius:6px; border:1px solid var(--border); background:#0b1220; color: var(--text); }
-.cart-item-remove { cursor:pointer; color:#f87171; font-weight:bold; }
-.total-section { margin-top:20px; display:flex; justify-content:space-between; font-size:20px; font-weight:700; }
-input, button { width:100%; padding:12px; margin:6px 0; border-radius:10px; border:none; font-size:16px; }
-input { background:#0b1220; color: var(--text); }
-button { background: var(--accent); color:#000; font-weight:bold; cursor:pointer; }
-button:hover { background: var(--accent-2); transform: scale(1.02); transition:0.2s; }
+:root{--bg:#0f172a;--card:#111827;--text:#e5e7eb;--accent:#22c55e;--accent-2:#10b981;--border:#1f2937}
+body{background:var(--bg);color:var(--text);font-family:Arial,sans-serif;margin:0;padding:0}
+.container{max-width:900px;margin:40px auto;padding:0 20px}
+h1,h2{text-align:center}
+.cart{display:flex;flex-direction:column;gap:12px;margin-bottom:20px}
+.cart-item{display:flex;align-items:center;gap:12px;background:var(--card);padding:12px;border-radius:12px;border:1px solid var(--border);transition:transform 0.3s}
+.cart-item:hover{transform:scale(1.02)}
+.cart-item img{width:100px;height:100px;object-fit:contain;border-radius:8px;background:#0b1220}
+.cart-item-info{flex:1}
+.cart-item-info h3{margin:0;font-size:16px}
+.cart-item-info p{margin:0;color:var(--text)}
+.cart-item-qty input{width:50px;text-align:center;padding:4px;border-radius:6px;border:1px solid var(--border);background:#0b1220;color:var(--text)}
+.cart-item-remove{cursor:pointer;color:#f87171;font-weight:bold}
+.total-section{display:flex;justify-content:space-between;font-weight:bold;margin-top:15px}
+input,button{width:100%;padding:10px;margin:5px 0;border-radius:8px;border:none;font-size:16px}
+input{background:#0b1220;color:var(--text)}
+button{background:var(--accent);color:#000;cursor:pointer;font-weight:bold}
+button:hover{background:var(--accent-2);transform:scale(1.02);transition:0.2s}
 </style>
 </head>
 <body>
-
 <div class="container">
   <h1>My Cart</h1>
   <div id="cart" class="cart"></div>
@@ -53,16 +46,23 @@ button:hover { background: var(--accent-2); transform: scale(1.02); transition:0
 </div>
 
 <script>
+// Sample cart data if empty (for testing)
+if(!localStorage.getItem("halcityCart")){
+  localStorage.setItem("halcityCart", JSON.stringify([
+    {name:"Watch", price:100000, quantity:1, img:"assets/images/80.jpeg"},
+    {name:"Smart Shoes", price:210000, quantity:2, img:"assets/images/1.jpeg"}
+  ]));
+}
+
 let cartItems = JSON.parse(localStorage.getItem("halcityCart")) || [];
 
 function renderCart(){
   const cartDiv = document.getElementById("cart");
-  cartDiv.innerHTML = "";
-  let total = 0;
-
+  cartDiv.innerHTML="";
+  let total=0;
   cartItems.forEach((item,index)=>{
-    total += item.price*item.quantity;
-    const div = document.createElement("div");
+    total+=item.price*item.quantity;
+    const div=document.createElement("div");
     div.className="cart-item";
     div.innerHTML=`
       <img src="${item.img}" alt="${item.name}">
@@ -70,15 +70,12 @@ function renderCart(){
         <h3>${item.name}</h3>
         <p>UGX ${item.price.toLocaleString()}</p>
       </div>
-      <div class="cart-item-qty">
-        <input type="number" min="1" value="${item.quantity}" data-index="${index}">
-      </div>
+      <div class="cart-item-qty"><input type="number" min="1" value="${item.quantity}" data-index="${index}"></div>
       <div class="cart-item-remove" data-index="${index}">Remove</div>
     `;
     cartDiv.appendChild(div);
   });
-
-  document.getElementById("totalPrice").textContent = total.toLocaleString();
+  document.getElementById("totalPrice").textContent=total.toLocaleString();
 
   document.querySelectorAll(".cart-item-qty input").forEach(input=>{
     input.addEventListener("change",(e)=>{
@@ -107,15 +104,23 @@ document.getElementById("confirmBtn").addEventListener("click",()=>{
   const pickup=document.getElementById("pickup").value;
   const time=document.getElementById("time").value;
 
-  if(!name||!email||!phone||!pickup||!time){ alert("Please fill all fields!"); return; }
+  if(!name||!email||!phone||!pickup||!time){alert("Please fill all fields!");return;}
 
-  const order = { items: cartItems, customerName:name, customerEmail:email, customerPhone:phone, pickup, time, orderTime:new Date().toLocaleString() };
+  const order = {
+    items: cartItems,
+    customerName: name,
+    customerEmail: email,
+    customerPhone: phone,
+    pickup, time,
+    orderTime: new Date().toLocaleString(),
+    total: cartItems.reduce((a,b)=>a+b.price*b.quantity,0)
+  };
 
   let orders = JSON.parse(localStorage.getItem("halcityOrders")||"[]");
   orders.push(order);
   localStorage.setItem("halcityOrders",JSON.stringify(orders));
 
-  alert("✅ Order confirmed! Admin can now view it.");
+  alert("✅ Order confirmed! Admin can view it.");
   cartItems=[];
   localStorage.removeItem("halcityCart");
   renderCart();

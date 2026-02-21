@@ -7,15 +7,15 @@
 <style>
 :root{--bg:#0f172a;--card:#111827;--text:#e5e7eb;--accent:#22c55e;--accent-2:#10b981;--border:#1f2937}
 body{margin:0;font-family:Arial,sans-serif;background:var(--bg);color:var(--text)}
-.login-box,.orders-box{max-width:1200px;margin:60px auto;background:var(--card);padding:30px;border-radius:18px;box-shadow:0 20px 40px rgba(0,0,0,0.4)}
+.login-box,.orders-box{max-width:1200px;margin:40px auto;background:var(--card);padding:30px;border-radius:18px;box-shadow:0 20px 40px rgba(0,0,0,0.4)}
 .login-box input,.login-box button{width:100%;padding:12px;margin-bottom:15px;border-radius:12px;border:none;font-size:16px}
 .login-box button{background:var(--accent);color:#000;font-weight:bold;cursor:pointer}
 .login-box button:hover{background:var(--accent-2)}
 .orders-box table{width:100%;border-collapse:collapse}
-.orders-box th,.orders-box td{border:1px solid rgba(255,255,255,0.2);padding:10px;text-align:left}
+.orders-box th,.orders-box td{border:1px solid rgba(255,255,255,0.2);padding:8px;text-align:left;vertical-align:middle}
 .orders-box th{background:var(--accent-2);color:#000}
 .orders-box tr:nth-child(even){background:rgba(255,255,255,0.05)}
-.orders-box img{width:50px;border-radius:8px}
+.orders-box img{width:60px;border-radius:6px;object-fit:contain;margin-right:5px}
 </style>
 </head>
 <body>
@@ -31,7 +31,7 @@ body{margin:0;font-family:Arial,sans-serif;background:var(--bg);color:var(--text
 <h2>All Orders</h2>
 <table>
 <thead>
-<tr><th>Items</th><th>Customer Name</th><th>Email</th><th>Phone</th><th>Pickup</th><th>Time</th><th>Order Placed</th></tr>
+<tr><th>Items</th><th>Total</th><th>Customer Name</th><th>Email</th><th>Phone</th><th>Pickup</th><th>Time</th><th>Order Placed</th></tr>
 </thead>
 <tbody id="ordersTable"></tbody>
 </table>
@@ -53,8 +53,9 @@ loginBtn.addEventListener("click",()=>{
     ordersTable.innerHTML="";
     orders.forEach(order=>{
       const tr=document.createElement("tr");
-      const items=order.items.map(i=>`${i.name} x ${i.quantity}`).join("<br>");
+      const items=order.items.map(i=>`<img src="${i.img}">${i.name} x ${i.quantity}`).join("<br>");
       tr.innerHTML=`<td>${items}</td>
+        <td>UGX ${order.total.toLocaleString()}</td>
         <td>${order.customerName}</td>
         <td>${order.customerEmail}</td>
         <td>${order.customerPhone}</td>
@@ -63,7 +64,7 @@ loginBtn.addEventListener("click",()=>{
         <td>${order.orderTime}</td>`;
       ordersTable.appendChild(tr);
     });
-  } else { alert("❌ Incorrect username or password."); }
+  }else{ alert("❌ Incorrect username or password."); }
 });
 </script>
 </body>
